@@ -50,7 +50,7 @@ You can start MLCameraStreamPreview like below after getting camera permission o
  mCameraStreamPreview.start()
 ```
 
-Also, don't forget to integrate MLCameraStreamPreview with activity lifecycle.
+Also, don't forget to integrate MLCameraStreamPreview with lifecycle events.
 
 ```
   private fun startCamera() {
@@ -87,9 +87,9 @@ mCameraStreamPreview.mBaseTransactor.getResult<MLImageClassification>().observe(
             })
 ```
 
-We are observing getResult<T>() method that inside BaseTransactor class for retrieving detected result.
+We are observing getResult<_T_>() method that inside BaseTransactor class for retrieving detected result.
 
-For casting detected result to the relevant analyzer result, we need to give specific result type to the getResult<T>() function. In sample, we used MLImageClassification Analyzer therefore we gave MLImageClassification type to the method.
+For casting detected result to the relevant analyzer result, we need to give specific result type to the getResult<_T_>() function. In sample, we used MLImageClassification Analyzer therefore we gave MLImageClassification type to the method.
 
 The other analyzers and result types:
 
@@ -106,4 +106,3 @@ MLSceneDetectionAnalyzer | MLSceneDetection |
 
 
 With following these steps you can implement and use MLCameraStreamPreview. Hope it helps with your projects. Thank you.
-_ieb._
