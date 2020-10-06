@@ -46,7 +46,7 @@ class MLCameraStreamPreview(
     private var mSurfaceAvailable = false
     private var mLensEngine: LensEngine? = null
     private lateinit var mlAnalyzer: MLAnalyzer<*>
-    lateinit var mTransactor: Transactor<*>
+    lateinit var mBaseTransactor: BaseTransactor<*>
 
 
     var transactResult: ((MLAnalyzer.Result<*>?) -> Unit)? = null
@@ -135,7 +135,7 @@ class MLCameraStreamPreview(
     }
 
     private fun <T> setTransactor(analyzer: MLAnalyzer<T>) {
-        mTransactor = Transactor<T>(
+        mBaseTransactor = BaseTransactor<T>(
             {
                 transactResult?.invoke(it)
             },

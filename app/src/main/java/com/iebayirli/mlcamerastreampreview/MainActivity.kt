@@ -2,23 +2,11 @@ package com.iebayirli.mlcamerastreampreview
 
 import android.app.Activity
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import com.huawei.hms.mlsdk.classification.MLImageClassification
-import com.huawei.hms.mlsdk.face.MLFace
-import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypoint
-import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypoints
-import com.huawei.hms.mlsdk.imgseg.MLImageSegmentation
-import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationAnalyzer
-import com.huawei.hms.mlsdk.objects.MLObject
-import com.huawei.hms.mlsdk.objects.MLObjectAnalyzer
-import com.huawei.hms.mlsdk.scd.MLSceneDetection
-import com.huawei.hms.mlsdk.skeleton.MLSkeleton
-import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzer
-import com.huawei.hms.mlsdk.text.MLText
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         if (!checkPermission())
             requestPermissions(arrayOf(cameraPermission), CAMERA_REQ_CODE)
 
-        mCameraStreamPreview.mTransactor.getResult<MLImageClassification>().observe(this,
+        mCameraStreamPreview.mBaseTransactor.getResult<MLImageClassification>().observe(this,
             Observer {
                 it?.analyseList?.let {
                     Log.d(TAG, "Size: ${it.size()}")

@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import com.huawei.hms.mlsdk.common.MLAnalyzer
 
 
-class Transactor<T>(private val transactResult: ((MLAnalyzer.Result<T>?) -> Unit)? = null,
-                    private val destroy: (() -> Unit)? = null) : MLAnalyzer.MLTransactor<T>{
+class BaseTransactor<T>(private val transactResult: ((MLAnalyzer.Result<T>?) -> Unit)? = null,
+                        private val destroy: (() -> Unit)? = null) : MLAnalyzer.MLTransactor<T>{
 
 
     private var resultList = MutableLiveData<MLAnalyzer.Result<T>?>()
