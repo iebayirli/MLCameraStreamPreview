@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MLCameraStreamPreview">
+        <attr name="analyzerType" format="enum">
+            <enum name="TEXT_ANALYZER" value="0"/>
+            <enum name="IMAGE_CLASSIFICATION_ANALYZER" value="1"/>
+            <enum name="OBJECT_ANALYZER" value="2"/>
+            <enum name="IMAGE_SEGMENTATION_ANALYZER" value="3"/>
+            <enum name="FACE_ANALYZER" value="4"/>
+            <enum name="SKELETON_ANALYZER" value="5"/>
+            <enum name="HAND_KEYPOINT_ANALYZER" value="6"/>
+            <enum name="SCENE_DETECTION_ANALYZER" value="7"/>
+        </attr>
+
+        <attr name="lensEngineLensType" format="enum">
+            <enum name="BACK_LENS" value="0"/>
+            <enum name="FRONT_LENS" value="1"/>
+        </attr>
+        <attr name="lensEngineDisplayHeight" format="integer"/>
+        <attr name="lensEngineDisplayWidth" format="integer"/>
+        <attr name="lensEngineFps" format="float"/>
+        <attr name="lensEngineAutomaticFocus" format="boolean"/>
+    </declare-styleable>
+
+</resources>

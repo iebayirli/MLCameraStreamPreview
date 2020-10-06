@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    
+    <com.iebayirli.mlcamerastreampreview.MLCameraStreamPreview
+        android:id="@+id/mCameraStreamPreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:analyzerType="IMAGE_CLASSIFICATION_ANALYZER"
+        app:lensEngineLensType="BACK_LENS"
+        app:lensEngineFps="30"
+        app:lensEngineAutomaticFocus="true"
+        app:lensEngineDisplayHeight="1440"
+        app:lensEngineDisplayWidth="1080"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
