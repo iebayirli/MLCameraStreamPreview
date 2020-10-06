@@ -1,4 +1,4 @@
-package com.iebayirli.mlcamerastreampreview
+package com.iebayirli.mlcamerastreampreview.camera_stream_preview
 
 import android.content.Context
 import android.content.res.Configuration
@@ -31,6 +31,7 @@ import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzer
 import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzerFactory
 import com.huawei.hms.mlsdk.text.MLText
 import com.huawei.hms.mlsdk.text.MLTextAnalyzer
+import com.iebayirli.mlcamerastreampreview.R
 import java.io.IOException
 import java.lang.Exception
 
@@ -54,7 +55,8 @@ class MLCameraStreamPreview(
 
     init {
         if (attrs != null) {
-            mContext.obtainStyledAttributes(attrs, R.styleable.MLCameraStreamPreview, 0, 0).use {
+            mContext.obtainStyledAttributes(attrs,
+                R.styleable.MLCameraStreamPreview, 0, 0).use {
                 cast(
                     it.getEnum(
                         R.styleable.MLCameraStreamPreview_analyzerType,
@@ -133,11 +135,13 @@ class MLCameraStreamPreview(
     }
 
     private fun <T> setTransactor(analyzer: MLAnalyzer<T>) {
-        mTransactor = Transactor<T>({
-            transactResult?.invoke(it)
-        }, {
-            destroy?.invoke()
-        }).apply {
+        mTransactor = Transactor<T>(
+            {
+                transactResult?.invoke(it)
+            },
+            {
+                destroy?.invoke()
+            }).apply {
             analyzer.setTransactor(this)
         }
     }
@@ -230,7 +234,7 @@ class MLCameraStreamPreview(
         try {
             startIfReady()
         } catch (e: IOException) {
-            Log.e(MLCameraStreamPreview.TAG, "Could not start camera source.", e)
+            Log.e(TAG, "Could not start camera source.", e)
         }
     }
 
@@ -244,7 +248,7 @@ class MLCameraStreamPreview(
                 startIfReady()
             } catch (e: IOException) {
                 Log.e(
-                    MLCameraStreamPreview.TAG,
+                    TAG,
                     "Could not start camera source.",
                     e
                 )
@@ -265,7 +269,7 @@ class MLCameraStreamPreview(
                 startIfReady()
             } catch (e: IOException) {
                 Log.e(
-                    MLCameraStreamPreview.TAG,
+                    TAG,
                     "Could not start camera source.",
                     e
                 )
@@ -283,7 +287,7 @@ class MLCameraStreamPreview(
                 return true
             }
             Log.d(
-                MLCameraStreamPreview.TAG,
+                TAG,
                 "isPortraitMode returning false by default"
             )
             return false

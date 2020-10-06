@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    
-    <com.iebayirli.mlcamerastreampreview.MLCameraStreamPreview
+
+    <com.iebayirli.mlcamerastreampreview.camera_stream_preview.MLCameraStreamPreview
         android:id="@+id/mCameraStreamPreview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

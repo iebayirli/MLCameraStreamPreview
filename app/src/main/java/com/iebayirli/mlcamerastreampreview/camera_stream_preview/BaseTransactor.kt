@@ -1,9 +1,7 @@
-package com.iebayirli.mlcamerastreampreview
+package com.iebayirli.mlcamerastreampreview.camera_stream_preview
 
-import android.util.SparseArray
 import androidx.lifecycle.MutableLiveData
 import com.huawei.hms.mlsdk.common.MLAnalyzer
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class Transactor<T>(private val transactResult: ((MLAnalyzer.Result<T>?) -> Unit)? = null,
