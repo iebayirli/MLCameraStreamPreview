@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import com.huawei.hms.mlsdk.classification.MLImageClassification
+import com.huawei.hms.mlsdk.imgseg.MLImageSegmentation
+import com.huawei.hms.mlsdk.scd.MLSceneDetectionAnalyzer
+import com.huawei.hms.mlsdk.text.MLText
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +29,7 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG, "Size: ${it.size()}")
                 }
             })
+
     }
 
     private fun startCamera() {

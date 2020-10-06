@@ -49,14 +49,12 @@ class MLCameraStreamPreview(
     lateinit var mBaseTransactor: BaseTransactor<*>
 
 
-    var transactResult: ((MLAnalyzer.Result<*>?) -> Unit)? = null
-    var destroy: (() -> Unit)? = null
-
-
     init {
         if (attrs != null) {
-            mContext.obtainStyledAttributes(attrs,
-                R.styleable.MLCameraStreamPreview, 0, 0).use {
+            mContext.obtainStyledAttributes(
+                attrs,
+                R.styleable.MLCameraStreamPreview, 0, 0
+            ).use {
                 cast(
                     it.getEnum(
                         R.styleable.MLCameraStreamPreview_analyzerType,
@@ -135,13 +133,7 @@ class MLCameraStreamPreview(
     }
 
     private fun <T> setTransactor(analyzer: MLAnalyzer<T>) {
-        mBaseTransactor = BaseTransactor<T>(
-            {
-                transactResult?.invoke(it)
-            },
-            {
-                destroy?.invoke()
-            }).apply {
+        mBaseTransactor = BaseTransactor<T>().apply {
             analyzer.setTransactor(this)
         }
     }
